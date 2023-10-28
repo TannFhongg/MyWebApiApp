@@ -11,6 +11,7 @@ namespace MyWebApiApp.Controllers
     {
         public static List<HangHoa> hangHoas = new List<HangHoa>();
 
+
         [HttpGet]
         public IActionResult GetAll()
         {
