@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyWebApiApp.Data;
+using MyWebApiApp.Services;
 
 namespace MyWebApiApp
 {
@@ -18,6 +19,8 @@ namespace MyWebApiApp
             builder.Services.AddDbContext<MyDbContext>(options => {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("MyDB"));
             });
+            builder.Services.AddScoped<ILoaiRepository,LoaiRepository>();
+            builder.Services.AddScoped<IHangHoaRepository, HangHoaRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
